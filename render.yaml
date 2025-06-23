@@ -1,0 +1,40 @@
+# Render.com Production Deployment Configuration
+
+services:
+  - type: web
+    name: task-manager-backend
+    runtime: node
+    plan: starter
+    buildCommand: cd backend && npm ci && npm run build
+    startCommand: cd backend && npm start
+    healthCheckPath: /
+    env: node
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false # Set this in Render dashboard (use Neon.tech or Render PostgreSQL)
+      - key: GEMINI_API_KEY
+        sync: false # Set this in Render dashboard
+      - key: JWT_SECRET
+        sync: false # Set this in Render dashboard (use a strong random string)
+      - key: CORS_ORIGIN
+        sync: false # Set this in Render dashboard (your frontend URL)
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 100
+    autoDeploy: true
+    branch: main
+
+# Database (Alternative: Use Neon.tech for better performance and cost)
+databases:
+  - name: task-manager-db
+    databaseName: task_manager
+    user: postgres
+    plan: free
+# Instructions for deployment:
+# 1. Connect your GitHub repository to Render
+# 2. Create a new Web Service using this configuration
+# 3. Set the required environment variables in Render dashboard
+# 4. Deploy!
