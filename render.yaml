@@ -3,12 +3,12 @@
 services:
   - type: web
     name: task-manager-backend
-    env: node
+    runtime: node
     plan: starter
-    buildCommand: cd backend && npm install && npm run build
+    buildCommand: cd backend && npm ci && npm run build
     startCommand: cd backend && npm start
-    healthCheckPath: /health
-    autoDeploy: true
+    healthCheckPath: /
+    env: node
     envVars:
       - key: NODE_ENV
         value: production
