@@ -10,8 +10,9 @@
     "build:compile": "tsc",
     "start": "node dist/index.js",
     "db:migrate": "tsx src/db/migrate.ts",
+    "db:migrate:prod": "node dist/db/migrate.js",
     "db:studio": "drizzle-kit studio",
-    "postinstall": "npm run build"
+    "postbuild": "npm run db:migrate:prod"
   },
   "dependencies": {
     "@google/generative-ai": "^0.2.1",
