@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { AnimatedBackground } from '@/components/AnimatedBackground'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Task Manager - AI-Powered Task Generation',
-  description: 'Generate and manage tasks with Google Gemini AI integration',
+  title: 'AI Task Manager - Intelligent Task Management',
+  description: 'Advanced task management with AI-powered suggestions and beautiful animations',
 }
 
 export default function RootLayout({
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
+        <AnimatedBackground />
         {children}
       </body>
     </html>

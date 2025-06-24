@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuthStore } from '@/lib/store';
+import { UserPlus, Mail, Lock, User, Sparkles, Brain, Zap } from 'lucide-react';
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
