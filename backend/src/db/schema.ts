@@ -48,7 +48,7 @@ export const insertTaskSchema = createInsertSchema(tasks, {
 
 export const selectTaskSchema = createSelectSchema(tasks);
 
-export const updateTaskSchema = insertTaskSchema.partial().omit({ userId: true });
+export const updateTaskSchema = insertTaskSchema.partial();
 
 // Types
 export type User = typeof users.$inferSelect;
