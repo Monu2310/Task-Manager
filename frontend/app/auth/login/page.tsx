@@ -57,7 +57,7 @@ function LoginContent() {
               <Sparkles className="w-8 h-8 text-white" />
             </motion.div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Task Manager v1.0.2
+              Task Manager
             </h1>
             <p className="text-gray-300 mt-2">AI-powered productivity at your fingertips</p>
           </motion.div>
