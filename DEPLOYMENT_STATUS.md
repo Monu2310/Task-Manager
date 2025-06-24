@@ -29,8 +29,9 @@
 ### Backend API (Render.com)
 
 - **URL**: `https://task-manager-backend-hzqd.onrender.com`
-- **Status**: 🔄 Deploying (latest commit: 0de1285)
+- **Status**: 🔄 Deploying (latest commit: e9cddf7)
 - **Health Check**: `/health` endpoint
+- **Debug Info**: `/debug` endpoint
 - **API Docs**: `/docs` endpoint
 
 ### Frontend App (Vercel)

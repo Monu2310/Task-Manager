@@ -361,7 +361,12 @@ app.use("*", (req, res) => {
 
 const port = parseInt(process.env.PORT || "3001");
 
+console.log(`🔧 Starting server on port ${port}...`);
+console.log(`🌐 Environment: ${process.env.NODE_ENV || "development"}`);
+console.log(`💾 Database: ${process.env.DATABASE_URL ? "Connected" : "Not configured"}`);
+
 app.listen(port, "0.0.0.0", () => {
   console.log(`🚀 Server is running on port ${port}`);
   console.log(`📚 API Documentation available at http://localhost:${port}/docs`);
+  console.log(`🏥 Health check available at http://localhost:${port}/health`);
 });
