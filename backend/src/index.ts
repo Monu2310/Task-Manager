@@ -64,6 +64,16 @@ app.get("/", (req, res) => {
   });
 });
 
+// Dedicated health endpoint for monitoring
+app.get("/health", (req, res) => {
+  res.json({
+    status: "healthy",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || "development",
+  });
+});
+
 // API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
@@ -337,7 +347,7 @@ app.use("*", (req, res) => {
 
 const port = parseInt(process.env.PORT || "3001");
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`🚀 Server is running on port ${port}`);
   console.log(`📚 API Documentation available at http://localhost:${port}/docs`);
 });
