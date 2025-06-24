@@ -24,7 +24,7 @@ A full-stack web application that leverages the Google Gemini API to generate an
 - **Authentication**: JWT tokens with bcrypt password hashing
 - **API Documentation**: Swagger UI
 - **AI Integration**: Google Gemini API
-- **Deployment**: Docker + Render.com
+- **Deployment**: Render.com (backend) + Vercel (frontend)
 
 ### Frontend
 
@@ -38,7 +38,7 @@ A full-stack web application that leverages the Google Gemini API to generate an
 ## 📋 Prerequisites
 
 - Node.js 20+
-- Docker and Docker Compose
+- PostgreSQL 15+
 - Google Gemini API key from [Google AI Studio](https://aistudio.google.com/)
 
 ## 🚀 Quick Start
@@ -88,14 +88,15 @@ NEXT_PUBLIC_API_URL=http://localhost:3001
 3. Create a new API key
 4. Copy the API key to your backend `.env` file
 
-### 4. Run with Docker (Recommended)
+### 4. Start the Application
 
 ```bash
-# Start all services (database, backend, frontend)
-npm run docker:up
+# Start both backend and frontend
+npm run dev
 
-# Stop all services
-npm run docker:down
+# Or start individually:
+npm run dev:backend  # Backend on port 3001
+npm run dev:frontend # Frontend on port 3000
 ```
 
 ### 5. Run Locally (Alternative)
@@ -194,15 +195,12 @@ task-manager-app/
 │   │   ├── routes/         # API route handlers
 │   │   ├── middleware/     # Authentication & CORS
 │   │   └── utils/          # Utilities (auth, Gemini API)
-│   ├── Dockerfile
 │   └── package.json
 ├── frontend/               # Next.js React application
 │   ├── app/               # App router pages
 │   ├── components/        # Reusable UI components
 │   ├── lib/              # Utilities, types, store
-│   ├── Dockerfile
 │   └── package.json
-├── docker-compose.yml     # Multi-service Docker setup
 └── README.md
 ```
 
@@ -231,21 +229,6 @@ cd backend && npm run db:migrate
 cd backend && npm run db:studio
 ```
 
-### Useful Commands
-
-```bash
-# View logs
-docker-compose logs -f backend
-docker-compose logs -f frontend
-
-# Reset database
-docker-compose down -v
-docker-compose up -d postgres
-
-# Rebuild services
-docker-compose build
-```
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -262,7 +245,7 @@ This project is licensed under the MIT License.
 
 If you encounter any issues:
 
-1. Check the logs: `docker-compose logs`
+1. Check the console output in your terminal
 2. Ensure all environment variables are set
 3. Verify your Gemini API key is valid
 4. Check the [GitHub Issues](link-to-issues) for common problems

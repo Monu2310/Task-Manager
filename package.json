@@ -11,11 +11,7 @@
     "build:frontend": "cd frontend && npm run build",
     "start": "npm run start:backend",
     "start:backend": "cd backend && npm start",
-    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down",
-    "docker:build": "docker-compose build",
-    "deploy": "npm run build && npm run docker:build"
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
   },
   "keywords": [
     "task-manager",

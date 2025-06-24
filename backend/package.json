@@ -8,10 +8,9 @@
     "build": "npm run build:clean && npm run build:compile",
     "build:clean": "rm -rf dist",
     "build:compile": "tsc",
-    "start": "node dist/index.js",
+    "start": "node start.js",
     "db:migrate": "tsx src/db/migrate.ts",
-    "db:studio": "drizzle-kit studio",
-    "postinstall": "npm run build:compile"
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@google/generative-ai": "^0.2.1",
