@@ -172,31 +172,3 @@ export function TaskGenerator() {
     </Card>
   );
 }
-          <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <h3 className="font-medium">Generated Tasks for "{topic}"</h3>
-              <Button onClick={handleSaveAll} size="sm">
-                Save All
-              </Button>
-            </div>
-            
-            <div className="space-y-2">
-              {generatedTasks.map((task, index) => (
-                <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
-                  <span className="text-sm">{task}</span>
-                  <Button 
-                    size="sm" 
-                    variant="outline"
-                    onClick={() => handleSaveTask(task)}
-                  >
-                    Save
-                  </Button>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </CardContent>
-    </Card>
-  );
-}
