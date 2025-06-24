@@ -74,6 +74,20 @@ app.get("/health", (req, res) => {
   });
 });
 
+// Debug endpoint for production troubleshooting
+app.get("/debug", (req, res) => {
+  res.json({
+    environment: process.env.NODE_ENV,
+    port: process.env.PORT,
+    hasDatabase: !!process.env.DATABASE_URL,
+    hasJWT: !!process.env.JWT_SECRET,
+    hasGemini: !!process.env.GOOGLE_API_KEY,
+    cwd: process.cwd(),
+    nodeVersion: process.version,
+    routes: ['/', '/health', '/debug', '/api/auth/*', '/api/tasks/*', '/docs'],
+  });
+});
+
 // API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);

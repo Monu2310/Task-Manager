@@ -5,9 +5,10 @@ services:
     name: task-manager-backend
     runtime: node
     plan: starter
-    buildCommand: cd backend && npm ci && npm run build
-    startCommand: cd backend && npm start
-    healthCheckPath: /
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
     env: node
     envVars:
       - key: NODE_ENV
