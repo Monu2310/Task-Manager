@@ -31,7 +31,6 @@ A full-stack web application that leverages the Google Gemini API to generate an
 - **Framework**: Next.js 15+ with App Router
 - **UI Library**: ShadCN UI components
 - **Styling**: Tailwind CSS
-- **State Management**: Zustand
 - **HTTP Client**: Axios
 - **Deployment**: Netlify
 
@@ -41,73 +40,6 @@ A full-stack web application that leverages the Google Gemini API to generate an
 - PostgreSQL 15+
 - Google Gemini API key from [Google AI Studio](https://aistudio.google.com/)
 
-## 🚀 Quick Start
-
-### 1. Clone and Setup
-
-```bash
-git clone <your-repo-url>
-cd task-manager-app
-chmod +x setup.sh
-./setup.sh
-```
-
-### 2. Environment Configuration
-
-#### Backend Environment
-
-Copy `backend/.env.example` to `backend/.env` and update:
-
-```env
-# Database
-DATABASE_URL=postgresql://postgres:password123@localhost:5432/task_manager
-
-# Google Gemini API (Required)
-GEMINI_API_KEY=your_gemini_api_key_here
-
-# JWT Secret
-JWT_SECRET=your_jwt_secret_key_here
-
-# Server Configuration
-PORT=3001
-NODE_ENV=development
-```
-
-#### Frontend Environment
-
-Copy `frontend/.env.example` to `frontend/.env.local`:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3001
-```
-
-### 3. Get Google Gemini API Key
-
-1. Visit [Google AI Studio](https://aistudio.google.com/)
-2. Sign in with your Google account
-3. Create a new API key
-4. Copy the API key to your backend `.env` file
-
-### 4. Start the Application
-
-```bash
-# Start both backend and frontend
-npm run dev
-
-# Or start individually:
-npm run dev:backend  # Backend on port 3001
-npm run dev:frontend # Frontend on port 3000
-```
-
-### 5. Run Locally (Alternative)
-
-```bash
-# Install all dependencies
-npm run install:all
-
-# Start backend and frontend concurrently
-npm run dev
-```
 
 ## 📱 Usage
 
@@ -134,35 +66,6 @@ npm run dev
    - Change categories
    - Filter by status or category
    - View progress statistics
-
-## 🚀 Deployment
-
-### Backend Deployment (Render.com)
-
-1. Connect your GitHub repository to Render
-2. Create a new Web Service
-3. Set environment variables:
-   - `DATABASE_URL`: Use Neon.tech or Render PostgreSQL
-   - `GEMINI_API_KEY`: Your Google Gemini API key
-   - `JWT_SECRET`: A secure random string
-4. Deploy
-
-### Frontend Deployment (Netlify)
-
-1. Connect your GitHub repository to Netlify
-2. Set build settings:
-   - Build command: `cd frontend && npm run build`
-   - Publish directory: `frontend/.next`
-3. Set environment variables:
-   - `NEXT_PUBLIC_API_URL`: Your deployed backend URL
-4. Deploy
-
-### Database Setup (Neon.tech)
-
-1. Create account at [Neon.tech](https://neon.tech/)
-2. Create a new database
-3. Copy the connection string
-4. Update `DATABASE_URL` in your environment variables
 
 ## 📊 API Endpoints
 
@@ -202,32 +105,7 @@ task-manager-app/
 │   ├── lib/              # Utilities, types, store
 │   └── package.json
 └── README.md
-```
 
-## 🔧 Development
-
-### Running Tests
-
-```bash
-# Backend tests
-cd backend && npm test
-
-# Frontend tests
-cd frontend && npm test
-```
-
-### Database Operations
-
-```bash
-# Generate new migration
-cd backend && npm run db:generate
-
-# Run migrations
-cd backend && npm run db:migrate
-
-# Open Drizzle Studio
-cd backend && npm run db:studio
-```
 
 ## 🤝 Contributing
 
@@ -237,18 +115,6 @@ cd backend && npm run db:studio
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📝 License
-
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-If you encounter any issues:
-
-1. Check the console output in your terminal
-2. Ensure all environment variables are set
-3. Verify your Gemini API key is valid
-4. Check the [GitHub Issues](link-to-issues) for common problems
 
 ## 🎯 Future Enhancements
 
